@@ -12,9 +12,4 @@ public interface ResponseDto {
             Collection<String> fullUrl,
             String shortUrl
     ) implements ResponseDto {}
-
-    record ProbabilityLinkCreateResponseDto(
-            Collection<String> fullUrl,
-            String shortUrl
-    ) implements ResponseDto {}
 }
