@@ -7,9 +7,4 @@ public interface ResponseDto {
             String fullUrl,
             String shortUrl
     ) implements ResponseDto {}
-
-    record LinkListResponseDto(
-            Collection<String> fullUrl,
-            String shortUrl
-    ) implements ResponseDto {}
 }
