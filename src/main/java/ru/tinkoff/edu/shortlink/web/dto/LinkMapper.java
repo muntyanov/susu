@@ -16,11 +16,4 @@ public interface LinkMapper {
     LinkMapper INSTANCE = Mappers.getMapper(LinkMapper.class);
 
     LinkCreateResponseDto linkToLinkCreateDto(AbstractLink link);
-
-    @Mapping(expression = "java(LinkMapper.fullPathOfLink(link))", target = "fullUrl")
-    LinkListResponseDto linkToListLinkListDto(AbstractLink link);
-
-    static Collection<String> fullPathOfLink(AbstractLink link){
-        return Collections.singletonList(link.getFullUrl());
-    }
 }
