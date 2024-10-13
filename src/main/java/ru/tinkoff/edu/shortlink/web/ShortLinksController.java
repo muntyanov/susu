@@ -11,9 +11,6 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.HttpServerErrorException;
 import ru.tinkoff.edu.shortlink.web.dto.LinkMapper;
 
-import java.util.*;
-import java.util.stream.Collectors;
-
 import static ru.tinkoff.edu.shortlink.web.dto.ResponseDto.*;
 
 @RestController
@@ -45,12 +42,12 @@ public class ShortLinksController {
                     @ApiResponse(responseCode = "404", description = "Ссылка не найдена")
             })
     @GetMapping("/link/{shortLink}")
-    public LinkListResponseDto shortLinkFind(@PathVariable @NotEmpty String shortLink) {
+    public LinkCreateResponseDto shortLinkFind(@PathVariable @NotEmpty String shortLink) {
         var link = shortLinkService.find(shortLink);
         if (link == null) {
             throw new HttpClientErrorException(HttpStatus.NOT_FOUND);
         }
-        return mapper.linkToListLinkListDto(link);
+        return mapper.linkToLinkCreateDto(link);
     }
 
     @Operation(summary = "Удалить короткую ссылку",
