@@ -10,7 +10,5 @@ public interface ShortLinkService {
 
     boolean delete(@NotEmpty String shortLink);
 
-    Optional<Object> findAll();
-
     AbstractLink create(@NotEmpty String fullPath);
 }
